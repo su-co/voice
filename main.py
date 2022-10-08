@@ -21,11 +21,8 @@ noverlap为相邻帧重叠个数
 return_onesided是否返回一边
 boundary=zeros选择用0填充填充两端（当采样值数目不能够整除nperseg时）为了保证帧的完整性
 padded=True用0进行填充，保证帧的完整性（发生在boundary之后）'''
-<<<<<<< HEAD
+
 frames, frame_spacing = 25.0, 10.0  # 设置帧长和帧间隔，分别设置为25ms和10ms
-=======
-frames, frame_spacing = 25.0, 10.0  # 设置帧数和帧间隔，分别设置为25ms和10ms
->>>>>>> origin/master
 f, t, tfs = scipy.signal.stft(  # 天坑！！！！不同数目的信道，返回的tfs形状不同，会导致报错！！！
     x=data, fs=rate, window='hann', nperseg=int((frames / 1000.0) * rate),
     noverlap=int(((frame_spacing - frames) / 1000.0) * rate),
