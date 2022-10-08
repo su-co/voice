@@ -28,7 +28,9 @@ normalized_signal, rate = librosa.core.load("./data/music_change.wav", sr=None)
 features = librosa.feature.mfcc(y=normalized_signal, sr=rate, n_mfcc=40, hop_length=rate // 100,
                                 win_length=rate // 40, n_fft=512, fmin=100, fmax=4000)
 
-'''绘制特征图'''
+'''绘制特征图
+https://blog.csdn.net/mighty13/article/details/113851709
+'''
 plt.matshow(features)
 plt.axis('tight')
 plt.savefig("./result/mfcc")
