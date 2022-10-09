@@ -36,7 +36,7 @@ plt.show()
 '''
 output_file = os.path.join('data', 'demo3.0mu-law.wav')
 sig_change = sig_change * 255  # 因为scipy.io.wavfile.write就是根据数据类型决定编码方式
-sig_uint8 = sig_change.astype('uint8')  # 更改类型
+sig_uint8 = sig_change.astype('uint8')  # 更改np.arrary类型
 try:  # 复制文件
     copyfile(input_file, output_file)
 except IOError as e:
