@@ -3,16 +3,16 @@ import os
 import librosa
 from matplotlib import pyplot as plt
 
-# '''下载mp4文件'''
-# url = "https://www.youtube.com/watch?v=FM7MFYoylVs&ab_channel=ChainsmokersVEVO"
-# output_path = os.path.join("data")
-# file_name = "music.mp4"
-# pytube.YouTube(url).streams.filter(
-#     only_audio=True, file_extension="mp4")[0].download(output_path=output_path, filename=file_name)
-#
-# '''转换为相应格式的wav文件'''
-# os.system("ffmpeg -i ./data/music.mp4 ./data/music.wav")  # 格式转换（跑代码的时候报错，说找不到文件，少了.表示当前目录）
-# os.system("sox ./data/music.wav -r 16000 -b 16 -e signed-integer ./data/music_change.wav remix 1")  # 修改为单声道、16000Hz
+'''下载mp4文件'''
+url = "https://www.youtube.com/watch?v=FM7MFYoylVs&ab_channel=ChainsmokersVEVO"
+output_path = os.path.join("data")
+file_name = "music.mp4"
+pytube.YouTube(url).streams.filter(
+    only_audio=True, file_extension="mp4")[0].download(output_path=output_path, filename=file_name)
+
+'''转换为相应格式的wav文件'''
+os.system("ffmpeg -i ./data/music.mp4 ./data/music.wav")  # 格式转换（跑代码的时候报错，说找不到文件，少了.表示当前目录）
+os.system("sox ./data/music.wav -r 16000 -b 16 -e signed-integer ./data/music_change.wav remix 1")  # 修改为单声道、16000Hz
 
 '''提取MFCC特征
 详情参考 http://librosa.org/doc/latest/generated/librosa.feature.mfcc.html
