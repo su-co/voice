@@ -20,9 +20,10 @@ librosa.core.load 读取wav文件（返回浮点数的做了32767的归一化）
 y=表示数据
 sr=None表示保持原采样率
 hop_length可以简单地理解为帧间隔（1s/100=10ms）
-win_length理解为帧长
+win_length理解为帧长（1s/40=25ms）
 n_fft快速傅里叶变换维数
 只关注fmin到fmax的频率范围
+np.shape(features) = (40*帧数)，也就是说，每一帧都有一个MFCC特征！！！！！
 '''
 normalized_signal, rate = librosa.core.load("./data/music_change.wav", sr=None)
 features = librosa.feature.mfcc(y=normalized_signal, sr=rate, n_mfcc=40, hop_length=rate // 100,
