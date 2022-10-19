@@ -19,6 +19,6 @@ if __name__ == '__main__':
     test = os.path.join("au", "hm_test.wav")
     test_feature = f_e(test)
     result = dict(hm=GMM_hm.score(test_feature), zj=GMM_zj.score(test_feature), zca=GMM_zca.score(test_feature))
-    # print(result)
+    print(result)
     result_max = max(result, key=lambda x: result[x])
     print(result_max)

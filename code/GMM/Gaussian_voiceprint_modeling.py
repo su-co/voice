@@ -1,5 +1,5 @@
 from sklearn import mixture
-from F_MFCC_E import f_e
+from F_MFCC_E import f_e, f_e_a
 
 '''
 sklearn.mixture.GaussianMixture
@@ -15,7 +15,7 @@ init_params初始化方式，包括k-均值以及随机化
 def creat_model(voiceprint_recording_file):  # 声纹录入，并创建声纹模型
     gmm = mixture.GaussianMixture(  # 创建高斯混合模型
         n_components=4, covariance_type='full',  # 数据较少，所以使用较少的高斯分量，防止过拟合
-        max_iter=10, n_init=1, init_params='kmeans'
+        max_iter=30, n_init=10, init_params='kmeans'
     )
     features = f_e(voiceprint_recording_file)  # 提取权限者声纹特征
     gmm.fit(X=features)  # 对gmm进行参数估计，相当于用权限者声纹特征进行建模
